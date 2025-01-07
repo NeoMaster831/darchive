@@ -6,3 +6,5 @@ It is pointing at...
 - Immutable
 - Transparent
 - Anonymous
+
+Especially, it is "public" "immutable", but "anonymous" archive SDK.
