@@ -1,2 +1,6 @@
 # Ignore pycache
 **/__pycache__/
+
+# Ignore compiled solidity files
+**/cache/
+**/out/

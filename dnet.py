@@ -14,6 +14,7 @@ class DeNetwork:
         # 중요 정보
         self.web3 = Web3(Web3.HTTPProvider(self.config["network"]["rpc"]))
         self.account = self.web3.eth.account.from_key(self.config["account"]["private_key"])
+        self.contract = None
 
         # 기타 정보
         self.web3_name = self.config["network"]["name"]

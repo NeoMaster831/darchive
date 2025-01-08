@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT 
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
 contract Ownable {
     address public owner;
@@ -10,7 +10,7 @@ contract Ownable {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "Ownable: caller is not the owner");
+        require(msg.sender == owner);
         _;
     }
 

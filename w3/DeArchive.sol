@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT 
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
 import "./Ownable.sol";
 
@@ -17,7 +17,11 @@ contract DeArchive is Ownable {
 
     function save(bytes memory _data) public returns (uint256) {
         archives.push(Archive(msg.sender, _data));
-        return archives.length - 1;
+        // We can safely use unchecked, because the length of the array will never be 0 if we successfully pushed an element
+        // and pushing operation is checked, so.
+        unchecked {
+            return archives.length - 1;
+        }
     }
 
     function get(uint256 index) public view returns (address, bytes memory) {
