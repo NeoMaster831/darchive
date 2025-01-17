@@ -33,4 +33,7 @@ contract DeArchive is Ownable {
         delete archives[index];
     }
 
+    function size() public view returns (uint256) {
+        return archives.length;
+    }
 }

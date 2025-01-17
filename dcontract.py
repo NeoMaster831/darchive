@@ -68,10 +68,21 @@ class DeContract:
         contract_address = tx_receipt.contractAddress
         
         self.contract = self.web3.eth.contract(address=contract_address, abi=contract_json['abi'])
-
+        
         gas_used = tx_receipt.gasUsed
         return gas_used
     
+    def load_contract(self, contract_address: str):
+        
+        assert self.deployer is not None, "Deployer account not set."
+        assert self.owner_address is not None, "Owner address not set."
+        assert self.web3 is not None, "RPC connection not set."
+
+        with open(OUT_DEARCHIVE_ABI, 'r') as f:
+            contract_json = json.loads(f.read())
+        
+        self.contract = self.web3.eth.contract(address=contract_address, abi=contract_json['abi'])
+
     def get_contract(self):
         return self.contract
 
